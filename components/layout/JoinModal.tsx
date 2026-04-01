@@ -3,9 +3,10 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { MessageCircleCheck, Phone, X } from "lucide-react";
+import { X } from "lucide-react";
 
 import { contact } from "@/lib/content";
+import { CartoonButton } from "@/components/ui/cartoon-button";
 import { BrandMark } from "./BrandMark";
 
 type JoinModalProps = {
@@ -98,27 +99,33 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
             </div>
 
             <div className="mt-6 space-y-3">
-              <a
-                href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-black uppercase tracking-widest text-black transition-colors hover:bg-primary/90"
-              >
-                <Phone className="size-4" />
-                Call Now
-              </a>
+              <div className="flex justify-center">
+                <CartoonButton
+                  label="Call Now"
+                  color="bg-primary"
+                  onClick={() => {
+                    window.location.href = `tel:${contact.phone.replace(/\s+/g, "")}`;
+                  }}
+                />
+              </div>
               <div className="flex items-center gap-3 py-1 text-white/45">
                 <div className="h-px flex-1 bg-white/15" />
                 <span className="text-xs font-bold tracking-[0.3em]">OR</span>
                 <div className="h-px flex-1 bg-white/15" />
               </div>
-              <a
-                href={`https://wa.me/${contact.phone.replace(/[^\d]/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-black uppercase tracking-widest text-black transition-colors hover:bg-primary/90"
-              >
-                <MessageCircleCheck className="size-4" />
-                Leave a Message
-              </a>
+              <div className="flex justify-center">
+                <CartoonButton
+                  label="Leave a Message"
+                  color="bg-primary"
+                  onClick={() => {
+                    window.open(
+                      `https://wa.me/${contact.phone.replace(/[^\d]/g, "")}`,
+                      "_blank",
+                      "noopener,noreferrer",
+                    );
+                  }}
+                />
+              </div>
             </div>
             <p className="mt-4 text-center text-xs leading-relaxed text-white/60">
               Phone: {contact.phone}

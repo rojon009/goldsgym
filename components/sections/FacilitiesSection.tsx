@@ -4,6 +4,7 @@ import {
   StaggerChild,
 } from "@/components/motion/MotionPrimitives";
 import { facilities } from "@/lib/content";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 import { FacilityCard } from "./FacilityCard";
 
@@ -34,7 +35,13 @@ export function FacilitiesSection() {
         <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {facilities.map((f) => (
             <StaggerChild key={f.title}>
-              <FacilityCard {...f} />
+              <GlowCard
+                glowColor="orange"
+                customSize
+                className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-primary/25"
+              >
+                <FacilityCard {...f} />
+              </GlowCard>
             </StaggerChild>
           ))}
         </Stagger>

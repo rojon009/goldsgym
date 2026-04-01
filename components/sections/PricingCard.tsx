@@ -117,3 +117,4 @@ function ctaClass(isFeatured: boolean) {
   }
   return "w-full border border-white/20 hover:border-primary hover:text-primary py-4 rounded-lg font-black uppercase tracking-widest text-xs transition-colors";
 }
+

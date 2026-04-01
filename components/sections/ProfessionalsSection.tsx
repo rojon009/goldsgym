@@ -5,6 +5,7 @@ import {
   Stagger,
   StaggerChild,
 } from "@/components/motion/MotionPrimitives";
+import { GlowCard } from "@/components/ui/spotlight-card";
 import { professionals } from "@/lib/content";
 
 export function ProfessionalsSection() {
@@ -30,40 +31,46 @@ export function ProfessionalsSection() {
         <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {professionals.map((pro) => (
             <StaggerChild key={pro.name}>
-              <article className="group flex flex-row sm:flex-col gap-4 rounded-xl border border-white/10 bg-zinc-900/50 p-4 md:p-5 transition-colors hover:border-primary/30">
-                <div className="relative h-[100px] w-[100px] shrink-0 overflow-hidden rounded-lg sm:h-44 sm:w-full sm:aspect-[4/3]">
-                  <Image
-                    src={pro.imageSrc}
-                    alt={pro.imageAlt}
-                    fill
-                    className="origin-center scale-100 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                    sizes="(max-width: 640px) 100px, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="min-w-0 flex-1 space-y-2">
-                  <div>
-                    <h3 className="text-lg font-black uppercase italic tracking-tight text-white">
-                      {pro.name}
-                    </h3>
-                    <p className="text-primary text-[10px] font-black uppercase tracking-widest mt-1">
-                      {pro.designation}
-                    </p>
+              <GlowCard
+                glowColor="orange"
+                customSize
+                className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-primary/25"
+              >
+                <article className="group flex flex-row sm:flex-col gap-4 rounded-xl border border-white/10 bg-zinc-900/50 p-4 md:p-5 transition-colors hover:border-primary/30">
+                  <div className="relative h-[100px] w-[100px] shrink-0 overflow-hidden rounded-lg sm:h-44 sm:w-full sm:aspect-[4/3]">
+                    <Image
+                      src={pro.imageSrc}
+                      alt={pro.imageAlt}
+                      fill
+                      className="origin-center scale-100 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                      sizes="(max-width: 640px) 100px, (max-width: 1024px) 50vw, 33vw"
+                    />
                   </div>
-                  <p className="text-xs text-white/55 leading-relaxed line-clamp-4 sm:line-clamp-none">
-                    {pro.experience}
-                  </p>
-                  <ul className="flex flex-wrap gap-1.5 pt-1">
-                    {pro.expertise.map((item) => (
-                      <li
-                        key={item}
-                        className="rounded-md border border-white/10 bg-black/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
+                  <div className="min-w-0 flex-1 space-y-2">
+                    <div>
+                      <h3 className="text-lg font-black uppercase italic tracking-tight text-white">
+                        {pro.name}
+                      </h3>
+                      <p className="text-primary text-[10px] font-black uppercase tracking-widest mt-1">
+                        {pro.designation}
+                      </p>
+                    </div>
+                    <p className="text-xs text-white/55 leading-relaxed line-clamp-4 sm:line-clamp-none">
+                      {pro.experience}
+                    </p>
+                    <ul className="flex flex-wrap gap-1.5 pt-1">
+                      {pro.expertise.map((item) => (
+                        <li
+                          key={item}
+                          className="rounded-md border border-white/10 bg-black/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </GlowCard>
             </StaggerChild>
           ))}
         </Stagger>

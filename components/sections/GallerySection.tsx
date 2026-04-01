@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
   useCallback,
   useEffect,
@@ -12,6 +12,7 @@ import {
 
 import { FadeUp } from "@/components/motion/MotionPrimitives";
 import { softEase } from "@/components/motion/variants";
+import { CartoonButton } from "@/components/ui/cartoon-button";
 import { galleryImages, galleryMosaicCount } from "@/lib/content";
 
 /** Mobile: every cell gets an explicit aspect ratio so `Image fill` rows don’t collapse. Desktop: mosaic spans. */
@@ -102,14 +103,11 @@ export function GallerySection() {
 
         {total > 0 ? (
           <FadeUp className="mt-10 flex justify-center" delay={0.08}>
-            <button
-              type="button"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary bg-transparent px-8 py-3.5 text-sm font-black uppercase tracking-widest text-primary transition-all hover:bg-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            <CartoonButton
+              label="See all photos"
+              color="bg-primary"
               onClick={() => setLightbox(0)}
-            >
-              <Images className="size-4 shrink-0" strokeWidth={2} aria-hidden />
-              See all photos
-            </button>
+            />
           </FadeUp>
         ) : null}
       </div>
@@ -165,7 +163,7 @@ export function GallerySection() {
                         alt={galleryImages[lightbox].alt}
                         fill
                         className="object-contain"
-                        sizes="100vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 80vw"
                         priority
                       />
                     </motion.div>

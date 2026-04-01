@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { BrandMark } from "@/components/layout/BrandMark";
 import { JoinModal } from "@/components/layout/JoinModal";
 import { transitionHeader, softEase } from "@/components/motion/variants";
+import { CartoonButton } from "@/components/ui/cartoon-button";
 import { navLinks } from "@/lib/content";
 
 export function SiteHeader() {
@@ -51,13 +52,11 @@ export function SiteHeader() {
           animate={reduce ? undefined : { opacity: 1 }}
           transition={{ duration: 0.4, ease: softEase, delay: 0.28 }}
         >
-          <button
-            type="button"
+          <CartoonButton
+            label="Join Now"
+            color="bg-primary"
             onClick={() => setIsJoinModalOpen(true)}
-            className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-lg transition-all active:scale-95 shadow-lg shadow-primary/20"
-          >
-            Join Now
-          </button>
+          />
         </motion.div>
       </div>
       <JoinModal
