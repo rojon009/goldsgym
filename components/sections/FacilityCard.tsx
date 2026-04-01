@@ -26,13 +26,13 @@ export function FacilityCard({
   const Icon = facilityIcons[icon];
 
   const imageMotion =
-    "absolute inset-0 size-full origin-center scale-100 object-cover opacity-70 md:opacity-60 transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none motion-reduce:md:group-hover:scale-100 motion-reduce:md:group-hover:opacity-60 md:group-hover:scale-[1.06] md:group-hover:opacity-[0.75]";
+    "absolute inset-0 size-full origin-center scale-100 object-cover opacity-70 md:opacity-60 transform-gpu will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none motion-reduce:md:group-hover:scale-100 motion-reduce:md:group-hover:opacity-60 md:group-hover:scale-[1.06] md:group-hover:opacity-[0.75]";
 
   const descriptionMotion =
     "text-[0.7rem] sm:text-xs text-white/70 md:text-white/60 leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none motion-reduce:md:opacity-100 md:translate-y-1 md:group-hover:translate-y-0";
 
   return (
-    <div className="group relative h-[280px] sm:h-[300px] md:h-[400px] overflow-hidden rounded-xl bg-zinc-900 border border-white/5 transition-[border-color,box-shadow] duration-500 ease-out md:hover:border-white/15 md:hover:shadow-lg md:hover:shadow-black/40">
+    <div className="group relative h-[280px] sm:h-[300px] md:h-[400px] overflow-hidden rounded-xl bg-zinc-900 border border-white/5 transition-all duration-500 ease-out md:hover:border-primary/50 md:hover:shadow-lg md:hover:shadow-primary/10">
       <Image
         alt={title}
         className={imageMotion}

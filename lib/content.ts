@@ -128,7 +128,7 @@ export const professionals: {
       "Athletic preparation",
     ],
     imageSrc: facilities[2].imageSrc,
-    imageAlt: "Marcus Cole, Head of Performance at Fitness Zone Gym",
+    imageAlt: "Marcus Cole, Head of Performance at Gold's GYM",
   },
   {
     name: "Nina Okoro",
@@ -141,7 +141,7 @@ export const professionals: {
       "Small-group coaching",
     ],
     imageSrc: hero.memberAvatars[1],
-    imageAlt: "Nina Okoro, Women’s Program Lead at Fitness Zone Gym",
+    imageAlt: "Nina Okoro, Women’s Program Lead at Gold's GYM",
   },
   {
     name: "David Reyes",
@@ -150,7 +150,7 @@ export const professionals: {
       "10+ years in Olympic lifting progressions and return-to-play strength for weekend warriors and desk athletes alike.",
     expertise: ["Olympic lifting", "Mobility stacks", "Injury-aware loading"],
     imageSrc: hero.memberAvatars[2],
-    imageAlt: "David Reyes, Senior Strength Coach at Fitness Zone Gym",
+    imageAlt: "David Reyes, Senior Strength Coach at Gold's GYM",
   },
   {
     name: "Aisha Khan",
@@ -163,7 +163,7 @@ export const professionals: {
       "Breath & core integration",
     ],
     imageSrc: hero.memberAvatars[0],
-    imageAlt: "Aisha Khan, Recovery & Mobility Specialist at Fitness Zone Gym",
+    imageAlt: "Aisha Khan, Recovery & Mobility Specialist at Gold's GYM",
   },
   {
     name: "James Whitaker",
@@ -172,7 +172,7 @@ export const professionals: {
       "11+ years running large floor classes—energy high, standards higher, every rep accountable.",
     expertise: ["Metabolic conditioning", "Team training", "Rowing & bike erg"],
     imageSrc: facilities[0].imageSrc,
-    imageAlt: "James Whitaker, Group Training Director at Fitness Zone Gym",
+    imageAlt: "James Whitaker, Group Training Director at Gold's GYM",
   },
 ];
 
@@ -198,7 +198,7 @@ export type HeroSlide = {
 export const heroSlides: HeroSlide[] = [
   {
     src: u("photo-1571902943202-507ec2618e8f"),
-    alt: "Determined athlete training at Fitness Zone Gym",
+    alt: "Determined athlete training at Gold's GYM",
     badgeIcon: "zap",
     badge: "Premium Fitness Experience",
     line1: "Forge your",
@@ -211,7 +211,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     src: facilities[0].imageSrc,
-    alt: `${facilities[0].title} — Fitness Zone Gym`,
+    alt: `${facilities[0].title} — Gold's GYM`,
     badgeIcon: "dumbbell",
     badge: "Elite equipment floor",
     line1: "Built for",
@@ -223,7 +223,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     src: facilities[1].imageSrc,
-    alt: `${facilities[1].title} — Fitness Zone Gym`,
+    alt: `${facilities[1].title} — Gold's GYM`,
     badgeIcon: "userRound",
     badge: "Dedicated training windows",
     line1: "Focus in",
@@ -235,7 +235,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     src: facilities[2].imageSrc,
-    alt: `${facilities[2].title} — Fitness Zone Gym`,
+    alt: `${facilities[2].title} — Gold's GYM`,
     badgeIcon: "users",
     badge: "Expert-led progression",
     line1: "Coached to",
@@ -247,7 +247,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     src: facilities[3].imageSrc,
-    alt: `${facilities[3].title} — Fitness Zone Gym`,
+    alt: `${facilities[3].title} — Gold's GYM`,
     badgeIcon: "bath",
     badge: "Recovery that restores",
     line1: "Train hard,",
@@ -417,5 +417,5 @@ I'd like more information about your membership plans (pricing, tiers, and what'
 Thanks!`,
   gymImageSrc: u("photo-1518611012118-696072aa579a"),
   gymImageAlt:
-    "Members working out together in a lively group session at Fitness Zone Gym",
+    "Members working out together in a lively group session at Gold's GYM",
 };

@@ -27,7 +27,7 @@ export function FacilitiesSection() {
             className="max-w-md text-white/50 text-sm leading-relaxed"
             delay={0.06}
           >
-            Designed for high performance. Every square inch of Fitness Zone Gym
+            Designed for high performance. Every square inch of Gold&apos;s GYM
             is engineered to push you beyond your limits.
           </FadeUp>
         </div>

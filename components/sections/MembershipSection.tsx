@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+
+import { JoinModal } from "@/components/layout/JoinModal";
 import { FadeUp, Stagger, StaggerChild } from "@/components/motion/MotionPrimitives";
 import { membershipPlans } from "@/lib/content";
 
@@ -5,6 +10,8 @@ import { FlashSaleBanner } from "./FlashSaleBanner";
 import { PricingCard } from "./PricingCard";
 
 export function MembershipSection() {
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+
   return (
     <section
       className="bg-zinc-950 py-24 px-6 border-y border-white/5"
@@ -25,11 +32,17 @@ export function MembershipSection() {
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {membershipPlans.map((plan) => (
             <StaggerChild key={plan.name}>
-              <PricingCard {...plan} />
+              <PricingCard
+                {...plan}
+                onCtaClick={() => {
+                  setIsJoinModalOpen(true);
+                }}
+              />
             </StaggerChild>
           ))}
         </Stagger>
       </div>
+      <JoinModal open={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
     </section>
   );
 }

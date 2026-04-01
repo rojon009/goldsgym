@@ -9,7 +9,7 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "Fitness Zone Gym | Forge Your Finest Self",
+  title: "Gold's GYM | Forge Your Finest Self",
   description:
     "Expert coaching and premium facilities tailored for those who demand more.",
 };

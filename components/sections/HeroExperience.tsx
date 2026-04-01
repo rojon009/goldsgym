@@ -254,6 +254,7 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
                         src={src}
                         width={40}
                         height={40}
+                        loading="eager"
                       />
                     ))}
                   </div>

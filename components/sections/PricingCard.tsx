@@ -10,6 +10,7 @@ type PricingCardProps = {
   badge?: string;
   features: PlanFeature[];
   cta: string;
+  onCtaClick?: () => void;
 };
 
 export function PricingCard({
@@ -19,6 +20,7 @@ export function PricingCard({
   badge,
   features,
   cta,
+  onCtaClick,
 }: PricingCardProps) {
   const isFeatured = variant === "featured";
   const isPro = variant === "pro";
@@ -71,14 +73,24 @@ export function PricingCard({
           </li>
         ))}
       </ul>
-      <a
-        href={waHref ?? "#contact"}
-        target={waHref ? "_blank" : undefined}
-        rel={waHref ? "noopener noreferrer" : undefined}
-        className={`inline-flex items-center justify-center text-center ${ctaClass(isFeatured)}`}
-      >
-        {cta}
-      </a>
+      {onCtaClick ? (
+        <button
+          type="button"
+          onClick={onCtaClick}
+          className={`inline-flex items-center justify-center text-center ${ctaClass(isFeatured)}`}
+        >
+          {cta}
+        </button>
+      ) : (
+        <a
+          href={waHref ?? "#contact"}
+          target={waHref ? "_blank" : undefined}
+          rel={waHref ? "noopener noreferrer" : undefined}
+          className={`inline-flex items-center justify-center text-center ${ctaClass(isFeatured)}`}
+        >
+          {cta}
+        </a>
+      )}
     </div>
   );
 }

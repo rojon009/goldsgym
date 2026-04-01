@@ -13,7 +13,7 @@ export function SiteFooter() {
     <footer className="bg-background-dark border-t border-white/5 py-16 px-6">
       <FadeUp className="max-w-7xl mx-auto flex flex-col items-center gap-10">
         <BrandMark
-          iconClassName="size-5"
+          iconClassName="size-12"
           titleClassName="text-lg"
           wrapClassName="gap-3"
           iconWrapClassName="p-1 rounded"
@@ -30,7 +30,7 @@ export function SiteFooter() {
           ))}
         </div>
         <p className="text-[10px] uppercase tracking-[0.4em] font-black text-white/20">
-          © 2024 Fitness Zone Gym. THE ELITE STANDARD.
+          © 2024 Gold&apos;s GYM. THE ELITE STANDARD.
         </p>
       </FadeUp>
     </footer>
