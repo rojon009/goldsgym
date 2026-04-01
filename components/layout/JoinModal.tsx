@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { X } from "lucide-react";
+import { MessageCircleCheck, Phone, X } from "lucide-react";
 
 import { contact } from "@/lib/content";
 import { CartoonButton } from "@/components/ui/cartoon-button";
@@ -101,12 +101,16 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
             <div className="mt-6 space-y-3">
               <div className="flex justify-center">
                 <CartoonButton
-                  label="Call Now"
                   color="bg-primary"
                   onClick={() => {
                     window.location.href = `tel:${contact.phone.replace(/\s+/g, "")}`;
                   }}
-                />
+                >
+                  <div className="flex items-center gap-2">
+                    <Phone className="size-4" />
+                    Call Now
+                  </div>
+                </CartoonButton>
               </div>
               <div className="flex items-center gap-3 py-1 text-white/45">
                 <div className="h-px flex-1 bg-white/15" />
@@ -124,7 +128,12 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
                       "noopener,noreferrer",
                     );
                   }}
-                />
+                >
+                  <div className="flex items-center gap-2">
+                    <MessageCircleCheck className="size-4" />
+                    Leave a Message
+                  </div>
+                </CartoonButton>
               </div>
             </div>
             <p className="mt-4 text-center text-xs leading-relaxed text-white/60">
