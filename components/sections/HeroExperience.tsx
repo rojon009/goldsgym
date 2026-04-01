@@ -142,20 +142,25 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {slides.map((s, i) => (
-          <Image
-            key={s.src}
-            alt={s.alt}
-            aria-hidden={i !== safeIndex}
-            className={`absolute inset-0 size-full object-cover object-center grayscale transition-opacity duration-[1200ms] ease-out ${
-              i === safeIndex ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-            src={s.src}
-            fill
-            priority={i === 0}
-            sizes="100vw"
-          />
-        ))}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={slide.src}
+            className="absolute inset-0"
+            initial={reduce ? { opacity: 1 } : { opacity: 0.35 }}
+            animate={{ opacity: 1 }}
+            exit={reduce ? { opacity: 1 } : { opacity: 0.35 }}
+            transition={{ duration: reduce ? 0 : 0.45, ease: softEase }}
+          >
+            <Image
+              alt={slide.alt}
+              className="absolute inset-0 size-full object-cover object-center grayscale"
+              src={slide.src}
+              fill
+              priority={safeIndex === 0}
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {count > 1 ? (
@@ -246,7 +251,7 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
                 </a>
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
-                    {memberAvatars.map((src) => (
+                    {memberAvatars.map((src, i) => (
                       <Image
                         key={src}
                         alt="Member"
@@ -254,7 +259,7 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
                         src={src}
                         width={40}
                         height={40}
-                        loading="eager"
+                        loading={i === 0 ? "eager" : "lazy"}
                       />
                     ))}
                   </div>
