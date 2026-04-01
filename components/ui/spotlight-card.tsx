@@ -26,6 +26,8 @@ const sizeMap = {
   lg: "w-80 h-96",
 } as const;
 
+const GLOW_MEDIA = "(min-width: 768px)";
+
 export function GlowCard({
   children,
   className = "",
@@ -39,19 +41,30 @@ export function GlowCard({
   const innerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const mq = window.matchMedia(GLOW_MEDIA);
     const syncPointer = (e: PointerEvent) => {
       const { clientX: x, clientY: y } = e;
+      const el = cardRef.current;
+      if (!el) return;
+      el.style.setProperty("--x", x.toFixed(2));
+      el.style.setProperty("--xp", (x / window.innerWidth).toFixed(2));
+      el.style.setProperty("--y", y.toFixed(2));
+      el.style.setProperty("--yp", (y / window.innerHeight).toFixed(2));
+    };
 
-      if (cardRef.current) {
-        cardRef.current.style.setProperty("--x", x.toFixed(2));
-        cardRef.current.style.setProperty("--xp", (x / window.innerWidth).toFixed(2));
-        cardRef.current.style.setProperty("--y", y.toFixed(2));
-        cardRef.current.style.setProperty("--yp", (y / window.innerHeight).toFixed(2));
+    const applyListeners = () => {
+      document.removeEventListener("pointermove", syncPointer);
+      if (mq.matches) {
+        document.addEventListener("pointermove", syncPointer);
       }
     };
 
-    document.addEventListener("pointermove", syncPointer);
-    return () => document.removeEventListener("pointermove", syncPointer);
+    applyListeners();
+    mq.addEventListener("change", applyListeners);
+    return () => {
+      mq.removeEventListener("change", applyListeners);
+      document.removeEventListener("pointermove", syncPointer);
+    };
   }, []);
 
   const { base, spread } = glowColorMap[glowColor];
@@ -61,8 +74,8 @@ export function GlowCard({
     return sizeMap[size];
   };
 
-  const getInlineStyles = (): React.CSSProperties => {
-    const baseStyles: React.CSSProperties & Record<string, string | number> = {
+  const cssVars = (): React.CSSProperties & Record<string, string | number> => {
+    const vars: React.CSSProperties & Record<string, string | number> = {
       "--base": base,
       "--spread": spread,
       "--radius": "14",
@@ -71,101 +84,123 @@ export function GlowCard({
       "--backup-border": "var(--backdrop)",
       "--size": "200",
       "--outer": "1",
-      "--border-size": "calc(var(--border, 2) * 1px)",
-      "--spotlight-size": "calc(var(--size, 150) * 1px)",
-      "--hue": "calc(var(--base) + (var(--xp, 0) * var(--spread, 0)))",
-      backgroundImage: `radial-gradient(
-        var(--spotlight-size) var(--spotlight-size) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent
-      )`,
-      backgroundColor: "var(--backdrop, transparent)",
-      backgroundSize:
-        "calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))",
-      backgroundPosition: "50% 50%",
-      backgroundAttachment: "fixed",
-      border: "var(--border-size) solid var(--backup-border)",
-      position: "relative",
-      touchAction: "none",
     };
-
     if (width !== undefined) {
-      baseStyles.width = typeof width === "number" ? `${width}px` : width;
+      vars.width = typeof width === "number" ? `${width}px` : width;
     }
     if (height !== undefined) {
-      baseStyles.height = typeof height === "number" ? `${height}px` : height;
+      vars.height = typeof height === "number" ? `${height}px` : height;
     }
-
-    return baseStyles;
+    return vars;
   };
 
-  const beforeAfterStyles = `
-    [data-glow]::before,
-    [data-glow]::after {
-      pointer-events: none;
-      content: "";
-      position: absolute;
-      inset: calc(var(--border-size) * -1);
-      border: var(--border-size) solid transparent;
-      border-radius: calc(var(--radius) * 1px);
-      background-attachment: fixed;
-      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-      -webkit-mask-clip: padding-box, border-box;
-      -webkit-mask-composite: source-in;
-      mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-      mask-clip: padding-box, border-box;
-      mask-composite: intersect;
+  const spotlightStyles = `
+    [data-spotlight-card] {
+      --border-size: calc(var(--border, 2) * 1px);
+      --spotlight-size: calc(var(--size, 150) * 1px);
+      --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+      border: var(--border-size) solid var(--backup-border);
+      background-color: var(--backdrop);
+      position: relative;
+      touch-action: manipulation;
     }
-    
-    [data-glow]::before {
-      background-image: radial-gradient(
-        calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)), transparent 100%
-      );
-      filter: brightness(2);
+
+    [data-spotlight-card]::before,
+    [data-spotlight-card]::after {
+      content: none;
+      display: none;
     }
-    
-    [data-glow]::after {
-      background-image: radial-gradient(
-        calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(0 100% 100% / var(--border-light-opacity, 1)), transparent 100%
-      );
+
+    [data-spotlight-card] > [data-spotlight-inner] {
+      display: none;
     }
-    
-    [data-glow] [data-glow] {
-      position: absolute;
-      inset: 0;
-      will-change: filter;
-      opacity: var(--outer, 1);
-      border-radius: calc(var(--radius) * 1px);
-      border-width: calc(var(--border-size) * 20);
-      filter: blur(calc(var(--border-size) * 10));
-      background: none;
-      pointer-events: none;
-      border: none;
-    }
-    
-    [data-glow] > [data-glow]::before {
-      inset: -10px;
-      border-width: 10px;
+
+    @media ${GLOW_MEDIA} {
+      [data-spotlight-card] {
+        background-image: radial-gradient(
+          var(--spotlight-size) var(--spotlight-size) at
+          calc(var(--x, 0) * 1px)
+          calc(var(--y, 0) * 1px),
+          hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent
+        );
+        background-size:
+          calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+        background-position: 50% 50%;
+        background-attachment: fixed;
+      }
+
+      [data-spotlight-card]::before,
+      [data-spotlight-card]::after,
+      [data-spotlight-card] > [data-spotlight-inner]::before,
+      [data-spotlight-card] > [data-spotlight-inner]::after {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        display: block;
+        inset: calc(var(--border-size) * -1);
+        border: var(--border-size) solid transparent;
+        border-radius: calc(var(--radius) * 1px);
+        background-attachment: fixed;
+        background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+        -webkit-mask-clip: padding-box, border-box;
+        -webkit-mask-composite: source-in;
+        mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+        mask-clip: padding-box, border-box;
+        mask-composite: intersect;
+      }
+
+      [data-spotlight-card]::before,
+      [data-spotlight-card] > [data-spotlight-inner]::before {
+        background-image: radial-gradient(
+          calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+          calc(var(--x, 0) * 1px)
+          calc(var(--y, 0) * 1px),
+          hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)), transparent 100%
+        );
+        filter: brightness(2);
+      }
+
+      [data-spotlight-card]::after,
+      [data-spotlight-card] > [data-spotlight-inner]::after {
+        background-image: radial-gradient(
+          calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+          calc(var(--x, 0) * 1px)
+          calc(var(--y, 0) * 1px),
+          hsl(0 100% 100% / var(--border-light-opacity, 1)), transparent 100%
+        );
+      }
+
+      [data-spotlight-card] > [data-spotlight-inner]::before {
+        inset: -10px;
+        border-width: 10px;
+      }
+
+      [data-spotlight-card] > [data-spotlight-inner] {
+        display: block;
+        position: absolute;
+        inset: 0;
+        will-change: filter;
+        opacity: var(--outer, 1);
+        border-radius: calc(var(--radius) * 1px);
+        border-width: calc(var(--border-size) * 20);
+        filter: blur(calc(var(--border-size) * 10));
+        background: none;
+        pointer-events: none;
+        border: none;
+      }
     }
   `;
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: beforeAfterStyles }} />
+      <style dangerouslySetInnerHTML={{ __html: spotlightStyles }} />
       <div
         ref={cardRef}
-        data-glow
-        style={getInlineStyles()}
+        data-spotlight-card
+        style={cssVars()}
         className={`
           ${getSizeClasses()}
           ${!customSize ? "aspect-[3/4]" : ""}
@@ -176,11 +211,11 @@ export function GlowCard({
           shadow-[0_1rem_2rem_-1rem_black]
           p-4
           gap-4
-          backdrop-blur-[5px]
+          backdrop-blur-none md:backdrop-blur-[5px]
           ${className}
         `}
       >
-        <div ref={innerRef} data-glow />
+        <div ref={innerRef} data-spotlight-inner />
         {children}
       </div>
     </>

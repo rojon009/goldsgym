@@ -43,7 +43,7 @@ export function ReviewCard({
   rating,
 }: ReviewCardProps) {
   return (
-    <div className="w-full bg-zinc-900 p-8 md:p-10 lg:p-12 rounded-2xl border border-white/5 min-h-[240px] md:min-h-[260px] flex flex-col md:flex-row md:items-stretch md:gap-10 lg:gap-14">
+    <div className="w-full h-full min-h-0 bg-zinc-900 p-8 md:p-10 lg:p-12 rounded-2xl border border-white/5 flex flex-col md:flex-row md:items-stretch md:gap-10 lg:gap-14">
       <div className="flex items-center gap-4 mb-6 md:mb-0 md:flex-col md:items-start md:gap-5 shrink-0 md:w-52 lg:w-56">
         <Image
           alt={name}
@@ -64,7 +64,7 @@ export function ReviewCard({
           </div>
         </div>
       </div>
-      <p className="text-white/60 italic leading-relaxed text-sm md:text-base md:leading-relaxed flex-1 md:flex md:items-center md:border-l md:border-white/10 md:pl-10 lg:pl-12 pt-6 md:pt-0 border-t border-white/10 md:border-t-0 mt-auto md:mt-0">
+      <p className="text-white/60 italic leading-relaxed text-sm md:text-base md:leading-relaxed min-h-0 flex-1 md:flex md:items-center md:border-l md:border-white/10 md:pl-10 lg:pl-12 pt-6 md:pt-0 border-t border-white/10 md:border-t-0 mt-auto md:mt-0 overflow-y-auto">
         &quot;{quote}&quot;
       </p>
     </div>

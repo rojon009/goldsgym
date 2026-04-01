@@ -16,8 +16,8 @@ export function FlashSaleBanner() {
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-4">
-        <p className="text-xs font-black text-white/80 uppercase">
+      <div className="flex items-center flex-col gap-4">
+        <p className="text-xs font-black text-white/80 uppercase flex items-center gap-1">
           Ends in:{" "}
           <span className="bg-black/20 px-2 py-1 rounded">08h 42m 12s</span>
         </p>

@@ -85,7 +85,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative min-h-[300px] md:min-h-[320px] flex items-stretch justify-center px-11 sm:px-14 md:px-16">
+      <div className="relative h-96 md:h-78 flex items-stretch justify-center px-11 sm:px-14 md:px-16">
         {count > 1 ? (
           <>
             <button
@@ -107,11 +107,15 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
           </>
         ) : null}
 
-        <div className="w-full min-w-0 flex-1" aria-live="polite" aria-atomic="true">
+        <div
+          className="w-full min-w-0 min-h-0 flex-1 flex flex-col"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={review.name}
-              className="w-full"
+              className="w-full h-full min-h-0 flex flex-col"
               initial={reduce ? false : { opacity: 0, x: 24 }}
               animate={reduce ? { opacity: 1, x: 0 } : { opacity: 1, x: 0, transition: enter }}
               exit={
