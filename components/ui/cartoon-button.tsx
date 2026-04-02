@@ -7,6 +7,8 @@ interface CartoonButtonProps {
   hasHighlight?: boolean;
   disabled?: boolean;
   onClick?: () => void;
+  /** Tighter pill for nav bars */
+  size?: "default" | "compact";
 }
 
 export function CartoonButton({
@@ -16,7 +18,12 @@ export function CartoonButton({
   hasHighlight = true,
   disabled = false,
   onClick,
+  size = "default",
 }: CartoonButtonProps) {
+  const sizeClass =
+    size === "compact"
+      ? "h-9 px-4 text-xs sm:h-10 sm:px-5 sm:text-sm"
+      : "h-12 px-6 text-xl";
   const handleClick = () => {
     if (disabled) return;
     onClick?.();
@@ -29,8 +36,8 @@ export function CartoonButton({
       <button
         disabled={disabled}
         onClick={handleClick}
-        className={`relative h-12 px-6 text-xl rounded-full font-bold text-primary-foreground border-2 border-primary-foreground/90 transition-all duration-150 overflow-hidden group
-        ${color} hover:shadow-[0_4px_0_0_color-mix(in_srgb,var(--color-primary-foreground)_45%,#000)]
+        className={`relative rounded-full font-bold text-primary-foreground border-2 border-white/30 backdrop-blur-md transition-all duration-150 overflow-hidden group shadow-[0_8px_28px_-4px_rgba(45,212,191,0.35)] ${sizeClass}
+        ${color} hover:shadow-[0_10px_32px_-4px_rgba(45,212,191,0.45)]
         ${disabled ? "opacity-50 pointer-events-none" : "hover:-translate-y-1 active:translate-y-0 active:shadow-none"}`}
       >
         <span className="relative z-10 whitespace-nowrap">

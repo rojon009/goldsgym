@@ -55,7 +55,7 @@ export function ContactSection() {
 
   return (
     <section
-      className="bg-background-dark py-24 border-t border-white/5 overflow-hidden"
+      className="glass-section-deep py-24 overflow-hidden"
       id="contact"
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -109,7 +109,7 @@ export function ContactSection() {
               {socialLinks.map(({ Icon, href, label }) => (
                 <a
                   key={label}
-                  className="group w-12 h-12 rounded-full bg-surface flex items-center justify-center hover:bg-primary transition-all border border-white/5"
+                  className="group w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:border-primary/40 hover:bg-primary/15 transition-all"
                   href={href}
                   aria-label={label}
                 >
@@ -122,7 +122,7 @@ export function ContactSection() {
             </FadeUp>
           </div>
           <SideFade className="relative w-full" delay={0.06}>
-            <div className="relative h-[300px] sm:h-[340px] lg:h-[420px] overflow-hidden rounded-2xl border border-white/10 shadow-xl">
+            <div className="relative h-[300px] sm:h-[340px] lg:h-[420px] overflow-hidden rounded-2xl glass-panel-strong shadow-2xl">
               <Image
                 alt={contact.clinicImageAlt}
                 className="object-cover opacity-90"
@@ -156,7 +156,7 @@ function ContactRow({
 }) {
   const inner = (
     <>
-      <div className="w-12 h-12 rounded-lg bg-surface flex items-center justify-center border border-white/5 group-hover:border-primary transition-colors shrink-0">
+      <div className="w-12 h-12 rounded-lg glass-panel flex items-center justify-center group-hover:border-primary/50 transition-colors shrink-0">
         <Icon className="text-primary size-5" strokeWidth={2} />
       </div>
       <div className="min-w-0">

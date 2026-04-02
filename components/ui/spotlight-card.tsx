@@ -81,7 +81,7 @@ export function GlowCard({
       "--spread": spread,
       "--radius": "14",
       "--border": "3",
-      "--backdrop": "hsl(0 0% 60% / 0.12)",
+      "--backdrop": "rgb(255 255 255 / 0.04)",
       "--backup-border": "var(--backdrop)",
       "--size": "200",
       "--outer": "1",
@@ -209,10 +209,10 @@ export function GlowCard({
           relative
           grid
           grid-rows-[1fr_auto]
-          shadow-[0_1rem_2rem_-1rem_black]
+          shadow-[0_1rem_2rem_-1rem_rgb(0_0_0_/_0.35)]
           p-4
           gap-4
-          backdrop-blur-none md:backdrop-blur-[5px]
+          backdrop-blur-none md:backdrop-blur-2xl
           ${className}
         `}
       >

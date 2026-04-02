@@ -11,7 +11,7 @@ import { professionals } from "@/lib/content";
 export function ProfessionalsSection() {
   return (
     <section
-      className="bg-background-elevated py-24 px-6 border-t border-white/5"
+      className="glass-section py-24 px-6"
       id="professionals"
     >
       <div className="max-w-7xl mx-auto">
@@ -34,9 +34,9 @@ export function ProfessionalsSection() {
               <GlowCard
                 glowColor="cyan"
                 customSize
-                className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-primary/25"
+                className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-white/12"
               >
-                <article className="group flex flex-row sm:flex-col gap-4 rounded-xl border border-white/10 bg-surface/60 p-4 md:p-5 transition-colors hover:border-primary/30">
+                <article className="group flex flex-row sm:flex-col gap-4 rounded-xl glass-panel p-4 md:p-5 transition-all hover:border-primary/35 hover:shadow-[0_12px_40px_-8px_rgba(45,212,191,0.15)]">
                   <div className="relative h-[100px] w-[100px] shrink-0 overflow-hidden rounded-lg sm:h-44 sm:w-full sm:aspect-[4/3]">
                     <Image
                       src={pro.imageSrc}

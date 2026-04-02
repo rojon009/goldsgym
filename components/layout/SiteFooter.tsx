@@ -11,13 +11,13 @@ const footerLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-background-elevated border-t border-white/5 py-16 px-6">
+    <footer className="glass-section-deep border-t border-white/10 py-16 px-6">
       <FadeUp className="max-w-7xl mx-auto flex flex-col items-center gap-10">
         <BrandMark
           iconClassName="size-12"
           titleClassName="text-lg"
           wrapClassName="gap-3"
-          iconWrapClassName="p-1 rounded"
+          iconWrapClassName="p-1.5 rounded-lg glass-panel"
         />
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
           {footerLinks.map((link) => (

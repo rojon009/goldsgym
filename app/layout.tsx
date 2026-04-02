@@ -23,8 +23,9 @@ export default function RootLayout({
     <html lang="en" className={`dark ${outfit.variable}`}>
       <body
         id="top"
-        className="bg-background-light dark:bg-background-dark text-slate-100 font-display overflow-x-hidden antialiased selection:bg-primary/35 selection:text-white"
+        className="relative min-h-screen bg-background-dark text-slate-100 font-display overflow-x-hidden antialiased selection:bg-primary/35 selection:text-white"
       >
+        <div className="page-mesh" aria-hidden />
         {children}
       </body>
     </html>

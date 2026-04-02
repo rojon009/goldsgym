@@ -43,7 +43,7 @@ export function ReviewCard({
   rating,
 }: ReviewCardProps) {
   return (
-    <div className="w-full h-full min-h-0 bg-surface p-8 md:p-10 lg:p-12 rounded-2xl border border-white/5 flex flex-col md:flex-row md:items-stretch md:gap-10 lg:gap-14">
+    <div className="w-full h-full min-h-0 glass-panel-strong p-8 md:p-10 lg:p-12 rounded-2xl flex flex-col md:flex-row md:items-stretch md:gap-10 lg:gap-14">
       <div className="flex items-center gap-4 mb-6 md:mb-0 md:flex-col md:items-start md:gap-5 shrink-0 md:w-52 lg:w-56">
         <Image
           alt={name}

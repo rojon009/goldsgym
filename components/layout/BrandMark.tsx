@@ -14,7 +14,7 @@ export function BrandMark({
   iconClassName = "size-8",
   titleClassName = "text-xl",
   wrapClassName = "gap-3",
-  iconWrapClassName = "p-2 rounded-xl bg-primary/15 ring-1 ring-primary/25",
+  iconWrapClassName = "p-2 rounded-xl glass-panel text-primary",
   href,
 }: BrandMarkProps) {
   const inner = (

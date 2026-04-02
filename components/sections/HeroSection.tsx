@@ -5,7 +5,7 @@ import { HeroExperience } from "./HeroExperience";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-[5.75rem] overflow-hidden">
       <HeroExperience slides={heroSlides} patientAvatars={hero.patientAvatars} />
       <div className="pointer-events-none absolute inset-0 z-[11]">
         <div className="absolute inset-0 hero-gradient" />

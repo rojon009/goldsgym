@@ -47,8 +47,8 @@ const BADGE_ICONS: Record<
 const heroCarouselArrowClass =
   "pointer-events-auto touch-manipulation absolute top-1/2 z-30 flex size-14 -translate-y-1/2 items-center justify-center " +
   "rounded-none border-0 bg-transparent shadow-none ring-0 backdrop-blur-none text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] " +
-  "md:rounded-full md:border md:border-primary/20 md:bg-background-elevated/85 md:shadow-[0_4px_28px_rgba(0,0,0,0.5)] md:backdrop-blur-md md:ring-1 md:ring-inset md:ring-primary/15 md:drop-shadow-none " +
-  "transition-all duration-200 hover:text-primary md:hover:border-primary/45 md:hover:bg-background-elevated md:hover:text-primary md:hover:shadow-[0_6px_32px_rgba(45,212,191,0.22)] " +
+  "md:rounded-full md:border md:border-white/18 md:bg-[rgb(255_255_255_/0.08)] md:shadow-[0_8px_32px_rgba(0,0,0,0.35)] md:backdrop-blur-2xl md:ring-1 md:ring-inset md:ring-white/10 md:drop-shadow-none " +
+  "transition-all duration-200 hover:text-primary md:hover:border-primary/40 md:hover:bg-[rgb(255_255_255_/0.12)] md:hover:shadow-[0_12px_40px_-4px_rgba(45,212,191,0.2)] " +
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:scale-[0.96]";
 
 function HeroCarouselNavButton({
@@ -231,7 +231,7 @@ export function HeroExperience({ slides, patientAvatars }: HeroExperienceProps) 
                     }
               }
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-primary/20 border border-primary/30">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel-primary">
                 <BadgeIcon
                   className="text-primary size-3.5 shrink-0"
                   strokeWidth={2.5}
@@ -253,7 +253,7 @@ export function HeroExperience({ slides, patientAvatars }: HeroExperienceProps) 
               <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
                 <a
                   href={slide.ctaHref}
-                  className="inline-flex w-full sm:w-auto items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground text-base font-black uppercase tracking-widest px-10 py-5 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-primary/35"
+                  className="inline-flex w-full sm:w-auto items-center justify-center bg-primary/95 backdrop-blur-sm hover:bg-primary text-primary-foreground text-base font-black uppercase tracking-widest px-10 py-5 rounded-xl border border-white/25 transition-all hover:scale-[1.02] active:scale-95 shadow-[0_12px_40px_-6px_rgba(45,212,191,0.45)]"
                 >
                   {slide.ctaLabel}
                 </a>
@@ -263,7 +263,7 @@ export function HeroExperience({ slides, patientAvatars }: HeroExperienceProps) 
                       <Image
                         key={src}
                         alt=""
-                        className="w-10 h-10 rounded-full border-2 border-background-dark object-cover"
+                        className="w-10 h-10 rounded-full border-2 border-white/20 shadow-lg object-cover"
                         src={src}
                         width={40}
                         height={40}

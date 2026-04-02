@@ -11,7 +11,7 @@ import { FacilityCard } from "./FacilityCard";
 export function FacilitiesSection() {
   return (
     <section
-      className="bg-background-elevated py-24 px-6 relative overflow-hidden"
+      className="glass-section py-24 px-6 relative overflow-hidden"
       id="facilities"
     >
       <div className="max-w-7xl mx-auto">
@@ -38,7 +38,7 @@ export function FacilitiesSection() {
               <GlowCard
                 glowColor="cyan"
                 customSize
-                className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-primary/25"
+                className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-white/15"
               >
                 <FacilityCard {...f} />
               </GlowCard>

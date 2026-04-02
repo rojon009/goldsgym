@@ -51,14 +51,14 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
           transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
         >
           <motion.div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/50 backdrop-blur-2xl"
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
           />
           <motion.div
-            className="relative w-full max-w-md rounded-xl border border-primary/35 bg-background-elevated p-6 shadow-2xl shadow-primary/10"
+            className="relative w-full max-w-md rounded-2xl glass-panel-strong border-primary/30 p-6 shadow-[0_24px_64px_-12px_rgba(0,0,0,0.55)]"
             onClick={(e) => e.stopPropagation()}
             initial={
               reduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 16, scale: 0.98 }
@@ -75,7 +75,7 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
             <button
               type="button"
               onClick={onClose}
-              className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-md text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+              className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-lg glass-panel text-white/80 transition-colors hover:border-primary/35 hover:text-white"
               aria-label="Close join modal"
             >
               <X className="size-4" />

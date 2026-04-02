@@ -61,7 +61,7 @@ export function GallerySection() {
 
   return (
     <section
-      className="bg-background-dark py-24 px-6 border-t border-white/5"
+      className="glass-section-deep py-24 px-6"
       id="gallery"
     >
       <div className="max-w-7xl mx-auto">
@@ -86,7 +86,7 @@ export function GallerySection() {
             <button
               key={item.src}
               type="button"
-              className={`relative overflow-hidden rounded-xl border border-white/10 bg-surface text-left shadow-lg transition-all hover:border-primary/40 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${MOSAIC_TILE_CLASS[i]}`}
+              className={`relative overflow-hidden rounded-xl glass-panel text-left transition-all hover:border-primary/45 hover:brightness-110 hover:shadow-[0_12px_40px_-8px_rgba(45,212,191,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${MOSAIC_TILE_CLASS[i]}`}
               onClick={() => setLightbox(i)}
             >
               <Image
@@ -125,7 +125,7 @@ export function GallerySection() {
             transition={{ duration: 0.2 }}
           >
             <div
-              className="absolute inset-0 z-0 cursor-pointer bg-black/92 backdrop-blur-md"
+              className="absolute inset-0 z-0 cursor-pointer bg-black/88 backdrop-blur-2xl"
               aria-hidden
               onClick={close}
             />
@@ -134,7 +134,7 @@ export function GallerySection() {
               <button
                 type="button"
                 aria-label="Close gallery"
-                className="absolute right-4 top-4 z-[110] flex size-11 items-center justify-center rounded-full border border-white/15 bg-surface text-white transition-colors hover:border-primary hover:text-primary"
+                className="absolute right-4 top-4 z-[110] flex size-11 items-center justify-center rounded-full glass-panel-strong text-white transition-colors hover:border-primary/50 hover:text-primary"
                 onClick={close}
               >
                 <X className="size-5" strokeWidth={2} />
@@ -172,7 +172,7 @@ export function GallerySection() {
                   <button
                     type="button"
                     aria-label="Previous image"
-                    className="absolute left-0 top-1/2 z-[105] flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-surface/95 text-white transition-colors hover:border-primary hover:text-primary md:left-2"
+                    className="absolute left-0 top-1/2 z-[105] flex size-11 -translate-y-1/2 items-center justify-center rounded-full glass-panel-strong text-white transition-colors hover:border-primary/50 hover:text-primary md:left-2"
                     onClick={() => go(-1)}
                   >
                     <ChevronLeft className="size-6" strokeWidth={2} />
@@ -180,7 +180,7 @@ export function GallerySection() {
                   <button
                     type="button"
                     aria-label="Next image"
-                    className="absolute right-0 top-1/2 z-[105] flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-surface/95 text-white transition-colors hover:border-primary hover:text-primary md:right-2"
+                    className="absolute right-0 top-1/2 z-[105] flex size-11 -translate-y-1/2 items-center justify-center rounded-full glass-panel-strong text-white transition-colors hover:border-primary/50 hover:text-primary md:right-2"
                     onClick={() => go(1)}
                   >
                     <ChevronRight className="size-6" strokeWidth={2} />

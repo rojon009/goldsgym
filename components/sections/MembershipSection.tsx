@@ -14,7 +14,7 @@ export function MembershipSection() {
 
   return (
     <section
-      className="bg-background-dark py-24 px-6 border-y border-white/5"
+      className="glass-section-deep py-24 px-6 border-b border-white/[0.07]"
       id="membership"
     >
       <div className="max-w-7xl mx-auto">

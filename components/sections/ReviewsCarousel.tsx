@@ -91,7 +91,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
             <button
               type="button"
               aria-label="Previous review"
-              className="absolute left-0 top-1/2 z-10 flex size-9 sm:size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-surface/90 text-white backdrop-blur-sm transition-colors hover:border-primary/40 hover:text-primary"
+              className="absolute left-0 top-1/2 z-10 flex size-9 sm:size-10 -translate-y-1/2 items-center justify-center rounded-full glass-panel-strong text-white transition-colors hover:border-primary/45 hover:text-primary"
               onClick={() => handleManual(() => go(-1))}
             >
               <ChevronLeft className="size-5" strokeWidth={2} />
@@ -99,7 +99,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
             <button
               type="button"
               aria-label="Next review"
-              className="absolute right-0 top-1/2 z-10 flex size-9 sm:size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-surface/90 text-white backdrop-blur-sm transition-colors hover:border-primary/40 hover:text-primary"
+              className="absolute right-0 top-1/2 z-10 flex size-9 sm:size-10 -translate-y-1/2 items-center justify-center rounded-full glass-panel-strong text-white transition-colors hover:border-primary/45 hover:text-primary"
               onClick={() => handleManual(() => go(1))}
             >
               <ChevronRight className="size-5" strokeWidth={2} />
