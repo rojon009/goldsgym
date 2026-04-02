@@ -3,33 +3,21 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useState,
-} from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 
 import { FadeUp } from "@/components/motion/MotionPrimitives";
 import { softEase } from "@/components/motion/variants";
 import { CartoonButton } from "@/components/ui/cartoon-button";
-import { galleryImages, galleryMosaicCount } from "@/lib/content";
+import { InfiniteSlider } from "@/components/ui/infinite-slider-horizontal";
+import { galleryImages } from "@/lib/content";
 
-/** Mobile: every cell gets an explicit aspect ratio so `Image fill` rows don’t collapse. Desktop: mosaic spans. */
-const MOSAIC_TILE_CLASS = [
-  "col-span-1 aspect-[4/3] min-h-0 md:aspect-auto md:col-span-2 md:row-span-2",
-  "col-span-1 aspect-[4/3] min-h-0 md:aspect-auto md:col-span-2 md:row-span-1",
-  "col-span-1 aspect-[4/3] min-h-0 md:aspect-auto md:col-span-1 md:row-span-1",
-  "col-span-1 aspect-[4/3] min-h-0 md:aspect-auto md:col-span-1 md:row-span-1",
-  "col-span-1 aspect-[4/3] min-h-0 md:aspect-auto md:col-span-2 md:row-span-1",
-  "col-span-1 aspect-[4/3] min-h-0 md:aspect-auto md:col-span-2 md:row-span-1",
-] as const;
+const SLIDE_W = 280;
+const SLIDE_H = 210;
 
 export function GallerySection() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const titleId = useId();
   const total = galleryImages.length;
-  const mosaic = galleryImages.slice(0, galleryMosaicCount);
 
   const close = useCallback(() => setLightbox(null), []);
 
@@ -59,11 +47,33 @@ export function GallerySection() {
     };
   }, [lightbox, close, go]);
 
+  const fadeMask =
+    "[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]";
+
+  const renderSlides = () =>
+    galleryImages.map((item, i) => (
+      <button
+        type="button"
+        key={item.src}
+        className="relative shrink-0 overflow-hidden rounded-xl ring-1 ring-white/12 transition-[transform,box-shadow,ring-color] duration-300 hover:z-[1] hover:ring-primary/40 hover:shadow-[0_12px_40px_-8px_rgba(45,212,191,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        style={{ width: SLIDE_W, height: SLIDE_H }}
+        onClick={() => setLightbox(i)}
+        aria-label={`Open gallery: ${item.alt}`}
+      >
+        <Image
+          src={item.src}
+          alt=""
+          width={SLIDE_W}
+          height={SLIDE_H}
+          className="size-full object-cover"
+          sizes="(max-width: 640px) 72vw, 280px"
+        />
+        <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent" />
+      </button>
+    ));
+
   return (
-    <section
-      className="glass-section-deep py-24 px-6"
-      id="gallery"
-    >
+    <section className="glass-section-deep py-24 px-6" id="gallery">
       <div className="max-w-7xl mx-auto">
         <FadeUp className="text-center mb-4 max-w-2xl mx-auto">
           <p className="text-primary text-xs font-black uppercase tracking-[0.4em] mb-4">
@@ -73,38 +83,41 @@ export function GallerySection() {
             Calm <span className="text-primary">spaces</span>
           </h2>
           <p className="text-white/45 text-sm leading-relaxed">
-            Bright operatories, organized sterilization, and a reception that
-            doesn’t feel like a waiting room. Tap any photo to browse the full tour.
+            A living tour of our operatories and team areas—scrolls
+            automatically. Tap any image for the full-screen gallery.
           </p>
         </FadeUp>
 
-        <div
-          className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-3 gap-2.5 sm:gap-3 md:gap-3 md:min-h-[460px] mt-12"
-          aria-label="Gallery preview grid"
-        >
-          {mosaic.map((item, i) => (
-            <button
-              key={item.src}
-              type="button"
-              className={`relative overflow-hidden rounded-xl glass-panel text-left transition-all hover:border-primary/45 hover:brightness-110 hover:shadow-[0_12px_40px_-8px_rgba(45,212,191,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${MOSAIC_TILE_CLASS[i]}`}
-              onClick={() => setLightbox(i)}
+        <div className="relative mt-12 space-y-5 md:space-y-7">
+          <div className={`relative ${fadeMask}`}>
+            <InfiniteSlider
+              gap={20}
+              duration={105}
+              durationOnHover={90}
+              direction="horizontal"
+              className="cursor-grab active:cursor-grabbing"
             >
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background-dark/70 via-transparent to-transparent" />
-            </button>
-          ))}
+              {renderSlides()}
+            </InfiniteSlider>
+          </div>
+          <div className={`relative ${fadeMask}`}>
+            <InfiniteSlider
+              gap={20}
+              duration={110}
+              durationOnHover={95}
+              direction="horizontal"
+              reverse
+              className="cursor-grab active:cursor-grabbing"
+            >
+              {renderSlides()}
+            </InfiniteSlider>
+          </div>
         </div>
 
         {total > 0 ? (
-          <FadeUp className="mt-10 flex justify-center" delay={0.08}>
+          <FadeUp className="mt-12 flex justify-center" delay={0.08}>
             <CartoonButton
-              label="See all photos"
+              label="Open full gallery"
               color="bg-primary"
               onClick={() => setLightbox(0)}
             />
@@ -156,7 +169,11 @@ export function GallerySection() {
                         x: 0,
                         transition: { duration: 0.25, ease: softEase },
                       }}
-                      exit={{ opacity: 0, x: -12, transition: { duration: 0.18 } }}
+                      exit={{
+                        opacity: 0,
+                        x: -12,
+                        transition: { duration: 0.18 },
+                      }}
                     >
                       <Image
                         src={galleryImages[lightbox].src}
