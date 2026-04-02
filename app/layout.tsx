@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Outfit } from "next/font/google";
 
 import "./globals.css";
 
-const lexend = Lexend({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-lexend",
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -20,10 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${lexend.variable}`}>
+    <html lang="en" className={`dark ${outfit.variable}`}>
       <body
         id="top"
-        className="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden antialiased"
+        className="bg-background-light dark:bg-background-dark text-slate-100 font-display overflow-x-hidden antialiased selection:bg-primary/35 selection:text-white"
       >
         {children}
       </body>

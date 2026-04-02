@@ -39,8 +39,8 @@ const BADGE_ICONS: Record<
 const heroCarouselArrowClass =
   "pointer-events-auto touch-manipulation absolute top-1/2 z-30 flex size-14 -translate-y-1/2 items-center justify-center " +
   "rounded-none border-0 bg-transparent shadow-none ring-0 backdrop-blur-none text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] " +
-  "md:rounded-full md:border md:border-white/25 md:bg-zinc-950/80 md:shadow-[0_4px_28px_rgba(0,0,0,0.55)] md:backdrop-blur-md md:ring-1 md:ring-inset md:ring-white/10 md:drop-shadow-none " +
-  "transition-all duration-200 hover:text-primary md:hover:border-primary/50 md:hover:bg-zinc-950 md:hover:text-primary md:hover:shadow-[0_6px_32px_rgba(240,109,15,0.2)] " +
+  "md:rounded-full md:border md:border-primary/20 md:bg-background-elevated/85 md:shadow-[0_4px_28px_rgba(0,0,0,0.5)] md:backdrop-blur-md md:ring-1 md:ring-inset md:ring-primary/15 md:drop-shadow-none " +
+  "transition-all duration-200 hover:text-primary md:hover:border-primary/45 md:hover:bg-background-elevated md:hover:text-primary md:hover:shadow-[0_6px_32px_rgba(45,212,191,0.22)] " +
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:scale-[0.96]";
 
 function HeroCarouselNavButton({
@@ -153,7 +153,7 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
           >
             <Image
               alt={slide.alt}
-              className="absolute inset-0 size-full object-cover object-center grayscale"
+              className="absolute inset-0 size-full object-cover object-center contrast-[1.02] saturate-[1.05]"
               src={slide.src}
               fill
               priority={safeIndex === 0}
@@ -245,7 +245,7 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
               <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
                 <a
                   href={slide.ctaHref}
-                  className="inline-flex w-full sm:w-auto items-center justify-center bg-primary hover:bg-primary/90 text-white text-base font-black uppercase tracking-widest px-10 py-5 rounded-lg transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-primary/40"
+                  className="inline-flex w-full sm:w-auto items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground text-base font-black uppercase tracking-widest px-10 py-5 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-primary/35"
                 >
                   {slide.ctaLabel}
                 </a>

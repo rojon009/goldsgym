@@ -55,7 +55,7 @@ export function ContactSection() {
 
   return (
     <section
-      className="bg-zinc-950 py-24 border-t border-white/5 overflow-hidden"
+      className="bg-background-dark py-24 border-t border-white/5 overflow-hidden"
       id="contact"
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -109,11 +109,14 @@ export function ContactSection() {
               {socialLinks.map(({ Icon, href, label }) => (
                 <a
                   key={label}
-                  className="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-primary transition-all border border-white/5"
+                  className="group w-12 h-12 rounded-full bg-surface flex items-center justify-center hover:bg-primary transition-all border border-white/5"
                   href={href}
                   aria-label={label}
                 >
-                  <Icon className="size-[18px]" strokeWidth={2} />
+                  <Icon
+                    className="size-[18px] text-white/75 group-hover:text-primary-foreground transition-colors"
+                    strokeWidth={2}
+                  />
                 </a>
               ))}
             </FadeUp>
@@ -153,7 +156,7 @@ function ContactRow({
 }) {
   const inner = (
     <>
-      <div className="w-12 h-12 rounded-lg bg-zinc-900 flex items-center justify-center border border-white/5 group-hover:border-primary transition-colors shrink-0">
+      <div className="w-12 h-12 rounded-lg bg-surface flex items-center justify-center border border-white/5 group-hover:border-primary transition-colors shrink-0">
         <Icon className="text-primary size-5" strokeWidth={2} />
       </div>
       <div className="min-w-0">
@@ -172,7 +175,7 @@ function ContactRow({
       <a
         href={href}
         aria-label={linkLabel ?? `${label}: ${value}`}
-        className="flex items-center gap-6 group rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+        className="flex items-center gap-6 group rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-dark"
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
       >

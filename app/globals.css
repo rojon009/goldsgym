@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
+/* Arctic depth: cool navy base, teal-cyan energy (replaces gold / warm black). */
 @theme inline {
-  --color-primary: #d9b400;
-  --color-background-light: #f8f7f5;
-  --color-background-dark: #0a0a0a;
-  --color-accent: #f5e7a1;
-  --font-display: var(--font-lexend), ui-sans-serif, sans-serif;
-  --radius-DEFAULT: 0.25rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
+  --color-primary: #2dd4bf;
+  --color-primary-foreground: #042f2e;
+  --color-background-light: #e4f4f4;
+  --color-background-dark: #060a10;
+  --color-background-elevated: #0c131f;
+  --color-surface: #121b2c;
+  --color-accent: #99f6e4;
+  --font-display: var(--font-outfit), ui-sans-serif, sans-serif;
+  --radius-DEFAULT: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
   --radius-full: 9999px;
 }
 
@@ -17,7 +21,7 @@ html {
   scroll-padding-top: 5rem;
   overflow-y: scroll;
   scrollbar-gutter: stable;
-  scrollbar-color: color-mix(in srgb, var(--color-primary) 80%, #000 20%) #111;
+  scrollbar-color: color-mix(in srgb, var(--color-primary) 65%, #0c131f) var(--color-background-elevated);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -37,17 +41,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: var(--color-background-elevated);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-primary) 80%, #000 20%);
+  background: color-mix(in srgb, var(--color-primary) 55%, #0a1624);
   border-radius: 9999px;
-  border: 2px solid #111;
+  border: 2px solid var(--color-background-elevated);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--color-primary) 92%, #000 8%);
+  background: color-mix(in srgb, var(--color-primary) 78%, #0a1624);
 }
 
 button:enabled,
@@ -63,15 +67,15 @@ button:disabled,
 
 .hero-gradient {
   background: linear-gradient(
-    90deg,
-    rgba(10, 10, 10, 1) 0%,
-    rgba(10, 10, 10, 0.8) 40%,
-    rgba(10, 10, 10, 0) 100%
+    105deg,
+    rgb(6 10 16 / 0.97) 0%,
+    rgb(12 19 31 / 0.85) 38%,
+    rgb(6 10 16 / 0) 72%
   );
 }
 
 .text-outline {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
   color: transparent;
 }
 

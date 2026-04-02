@@ -15,7 +15,7 @@ export function SiteHeader() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 bg-background-dark/70 backdrop-blur-xl border-b border-primary/10"
       initial={reduce ? false : { opacity: 0, y: -12 }}
       animate={reduce ? undefined : { opacity: 1, y: 0 }}
       transition={transitionHeader}

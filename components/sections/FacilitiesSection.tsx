@@ -11,7 +11,7 @@ import { FacilityCard } from "./FacilityCard";
 export function FacilitiesSection() {
   return (
     <section
-      className="bg-background-dark py-24 px-6 relative overflow-hidden"
+      className="bg-background-elevated py-24 px-6 relative overflow-hidden"
       id="facilities"
     >
       <div className="max-w-7xl mx-auto">
@@ -36,7 +36,7 @@ export function FacilitiesSection() {
           {facilities.map((f) => (
             <StaggerChild key={f.title}>
               <GlowCard
-                glowColor="orange"
+                glowColor="cyan"
                 customSize
                 className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-primary/25"
               >

@@ -57,7 +57,7 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
             transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
           />
           <motion.div
-            className="relative w-full max-w-md rounded-xl border border-primary/40 bg-zinc-950 p-6 shadow-2xl shadow-black/60"
+            className="relative w-full max-w-md rounded-xl border border-primary/35 bg-background-elevated p-6 shadow-2xl shadow-primary/10"
             onClick={(e) => e.stopPropagation()}
             initial={
               reduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 16, scale: 0.98 }

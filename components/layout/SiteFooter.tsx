@@ -10,7 +10,7 @@ const footerLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-background-dark border-t border-white/5 py-16 px-6">
+    <footer className="bg-background-elevated border-t border-white/5 py-16 px-6">
       <FadeUp className="max-w-7xl mx-auto flex flex-col items-center gap-10">
         <BrandMark
           iconClassName="size-12"

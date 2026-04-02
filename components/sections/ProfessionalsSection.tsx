@@ -11,7 +11,7 @@ import { professionals } from "@/lib/content";
 export function ProfessionalsSection() {
   return (
     <section
-      className="bg-background-dark py-24 px-6 border-t border-white/5"
+      className="bg-background-elevated py-24 px-6 border-t border-white/5"
       id="professionals"
     >
       <div className="max-w-7xl mx-auto">
@@ -32,11 +32,11 @@ export function ProfessionalsSection() {
           {professionals.map((pro) => (
             <StaggerChild key={pro.name}>
               <GlowCard
-                glowColor="orange"
+                glowColor="cyan"
                 customSize
                 className="w-full h-full p-0 gap-0 rounded-xl bg-transparent border-primary/25"
               >
-                <article className="group flex flex-row sm:flex-col gap-4 rounded-xl border border-white/10 bg-zinc-900/50 p-4 md:p-5 transition-colors hover:border-primary/30">
+                <article className="group flex flex-row sm:flex-col gap-4 rounded-xl border border-white/10 bg-surface/60 p-4 md:p-5 transition-colors hover:border-primary/30">
                   <div className="relative h-[100px] w-[100px] shrink-0 overflow-hidden rounded-lg sm:h-44 sm:w-full sm:aspect-[4/3]">
                     <Image
                       src={pro.imageSrc}

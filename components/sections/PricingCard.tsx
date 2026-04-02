@@ -30,12 +30,12 @@ export function PricingCard({
     <div
       className={
         isFeatured
-          ? "bg-zinc-900 border-2 border-primary p-10 rounded-2xl flex flex-col h-full relative transform md:-translate-y-4 shadow-2xl shadow-primary/10"
-          : "bg-zinc-900 border border-white/10 p-10 rounded-2xl flex flex-col h-full hover:border-primary/50 transition-all duration-300"
+          ? "bg-surface border-2 border-primary p-10 rounded-2xl flex flex-col h-full relative transform md:-translate-y-4 shadow-2xl shadow-primary/10"
+          : "bg-surface border border-white/10 p-10 rounded-2xl flex flex-col h-full hover:border-primary/50 transition-all duration-300"
       }
     >
       {badge ? (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full">
           {badge}
         </div>
       ) : null}
@@ -113,7 +113,7 @@ function checkIconClass(isFeatured: boolean, isPro: boolean) {
 
 function ctaClass(isFeatured: boolean) {
   if (isFeatured) {
-    return "w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-lg font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 transition-all active:scale-95";
+    return "w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 rounded-lg font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 transition-all active:scale-95";
   }
   return "w-full border border-white/20 hover:border-primary hover:text-primary py-4 rounded-lg font-black uppercase tracking-widest text-xs transition-colors";
 }

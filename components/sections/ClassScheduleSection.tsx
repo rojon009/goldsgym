@@ -20,7 +20,7 @@ function SlotCard({ slot }: { slot: ScheduleSlot }) {
       className={`rounded-xl border p-5 md:p-6 ${
         slot.type === "womenOnly"
           ? "border-primary/30 bg-primary/5"
-          : "border-white/10 bg-zinc-900/80"
+          : "border-white/10 bg-surface/80"
       }`}
     >
       <div className="flex items-start justify-between gap-4 mb-3">
@@ -78,7 +78,7 @@ function ScheduleBlock({
 export function ClassScheduleSection() {
   return (
     <section
-      className="bg-zinc-950 py-24 px-6 border-t border-white/5"
+      className="bg-background-dark py-24 px-6 border-t border-white/5"
       id="schedule"
     >
       <div className="max-w-7xl mx-auto">

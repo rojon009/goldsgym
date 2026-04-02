@@ -5,7 +5,7 @@ import { ReviewsCarousel } from "./ReviewsCarousel";
 
 export function ReviewsSection() {
   return (
-    <section className="bg-background-dark py-24 relative" id="reviews">
+    <section className="bg-background-elevated py-24 relative" id="reviews">
       <div className="max-w-7xl mx-auto px-6">
         <FadeUp className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">

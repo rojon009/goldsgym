@@ -29,7 +29,7 @@ export function BrandMark({
         />
       </div>
       <span
-        className={`${titleClassName} font-black tracking-tighter italic text-white`}
+        className={`${titleClassName} font-black tracking-tighter italic text-slate-100`}
       >
         Gold&apos;s GYM
       </span>
