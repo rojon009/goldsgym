@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 
 import "./globals.css";
+import { site } from "@/lib/content";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -9,9 +10,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Gold's GYM | Forge Your Finest Self",
-  description:
-    "Expert coaching and premium facilities tailored for those who demand more.",
+  title: `${site.practiceName} | ${site.tagline}`,
+  description: `${site.tagline} Book a free consult in ${site.city}: digital dentistry, gentle hygiene, implants, and family care.`,
 };
 
 export default function RootLayout({

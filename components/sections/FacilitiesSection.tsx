@@ -18,18 +18,18 @@ export function FacilitiesSection() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
           <FadeUp className="space-y-4">
             <p className="text-primary text-xs font-black uppercase tracking-[0.4em]">
-              The Elite Standard
+              Modern, transparent care
             </p>
             <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">
-              Superior <span className="text-primary">Facilities</span>
+              Everything <span className="text-primary">you need</span>
             </h2>
           </FadeUp>
           <FadeUp
             className="max-w-md text-white/50 text-sm leading-relaxed"
             delay={0.06}
           >
-            Designed for high performance. Every square inch of Gold&apos;s GYM
-            is engineered to push you beyond your limits.
+            Prevention, repair, and cosmetics—under one roof. We prioritize
+            comfort, explain costs upfront, and never rush you through a chair.
           </FadeUp>
         </div>
         <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">

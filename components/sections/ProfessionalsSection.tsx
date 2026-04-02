@@ -17,14 +17,14 @@ export function ProfessionalsSection() {
       <div className="max-w-7xl mx-auto">
         <FadeUp className="mb-12 md:mb-14 max-w-2xl">
           <p className="text-primary text-xs font-black uppercase tracking-[0.4em] mb-4">
-            The team
+            Dentists you&apos;ll trust
           </p>
           <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">
-            Meet Our <span className="text-primary">Professionals</span>
+            Meet <span className="text-primary">your team</span>
           </h2>
           <p className="mt-4 text-white/50 text-sm leading-relaxed">
-            Coaches and specialists who keep standards high and progress
-            honest—on the floor, in the pit, and on the recovery deck.
+            Board-ready clinicians and hygienists who listen first—then tailor a
+            plan to your goals, timeline, and budget.
           </p>
         </FadeUp>
 
@@ -42,7 +42,7 @@ export function ProfessionalsSection() {
                       src={pro.imageSrc}
                       alt={pro.imageAlt}
                       fill
-                      className="origin-center scale-100 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                      className="origin-top scale-100 object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                       sizes="(max-width: 640px) 100px, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>

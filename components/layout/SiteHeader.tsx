@@ -26,7 +26,7 @@ export function SiteHeader() {
           animate={reduce ? undefined : { opacity: 1 }}
           transition={{ duration: 0.4, ease: softEase, delay: 0.06 }}
         >
-          <BrandMark href="#" />
+          <BrandMark href="#top" />
         </motion.div>
         <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link, i) => (
@@ -53,7 +53,7 @@ export function SiteHeader() {
           transition={{ duration: 0.4, ease: softEase, delay: 0.28 }}
         >
           <CartoonButton
-            label="Join Now"
+            label="Book visit"
             color="bg-primary"
             onClick={() => setIsJoinModalOpen(true)}
           />

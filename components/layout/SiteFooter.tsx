@@ -1,5 +1,6 @@
 import { FadeUp } from "@/components/motion/MotionPrimitives";
 import { BrandMark } from "@/components/layout/BrandMark";
+import { site } from "@/lib/content";
 
 const footerLinks = [
   { href: "#", label: "Privacy Policy" },
@@ -30,7 +31,7 @@ export function SiteFooter() {
           ))}
         </div>
         <p className="text-[10px] uppercase tracking-[0.4em] font-black text-white/20">
-          © 2024 Gold&apos;s GYM. THE ELITE STANDARD.
+          © {new Date().getFullYear()} {site.practiceName}. Crafted for confident smiles.
         </p>
       </FadeUp>
     </footer>

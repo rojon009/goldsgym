@@ -97,7 +97,7 @@ export function PricingCard({
 
 function rowClass(feature: PlanFeature, isFeatured: boolean, isPro: boolean) {
   if (isFeatured) {
-    if (feature.text === "Group Classes") return "text-white/70";
+    if (feature.text === "Cosmetic consult credit") return "text-white/70";
     return "";
   }
   if (isPro) return "text-white/70";

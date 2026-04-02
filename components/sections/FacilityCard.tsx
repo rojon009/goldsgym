@@ -1,13 +1,19 @@
 import Image from "next/image";
-import { Bath, Dumbbell, UserRound, Users, type LucideIcon } from "lucide-react";
+import {
+  Shield,
+  Smile,
+  Sparkles,
+  Stethoscope,
+  type LucideIcon,
+} from "lucide-react";
 
 import type { FacilityIconKey } from "@/lib/content";
 
 const facilityIcons: Record<FacilityIconKey, LucideIcon> = {
-  dumbbell: Dumbbell,
-  userRound: UserRound,
-  users: Users,
-  bath: Bath,
+  sparkles: Sparkles,
+  shield: Shield,
+  stethoscope: Stethoscope,
+  smile: Smile,
 };
 
 export type FacilityCardProps = {

@@ -23,10 +23,11 @@ export function MembershipSection() {
         </FadeUp>
         <FadeUp className="text-center mb-16 space-y-4" delay={0.05}>
           <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">
-            Choose Your <span className="text-primary">Tier</span>
+            Predictable <span className="text-primary">care plans</span>
           </h2>
-          <p className="text-white/50 text-sm tracking-widest uppercase">
-            No hidden fees. Premium access guaranteed.
+          <p className="text-white/50 text-sm tracking-widest uppercase max-w-xl mx-auto leading-relaxed normal-case">
+            Membership-style preventive care so cleanings don&apos;t slip—and you
+            save on the treatments you actually need.
           </p>
         </FadeUp>
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-8">

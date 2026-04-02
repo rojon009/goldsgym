@@ -1,37 +1,33 @@
-import Image from "next/image";
+import { Smile } from "lucide-react";
+
+import { site } from "@/lib/content";
 
 type BrandMarkProps = {
   iconClassName?: string;
   titleClassName?: string;
   wrapClassName?: string;
   iconWrapClassName?: string;
-  /** Whole mark (icon + name) is a link, e.g. `#top` */
   href?: string;
 };
 
 export function BrandMark({
-  iconClassName = "size-14",
+  iconClassName = "size-8",
   titleClassName = "text-xl",
   wrapClassName = "gap-3",
-  iconWrapClassName = "p-1.5 rounded",
+  iconWrapClassName = "p-2 rounded-xl bg-primary/15 ring-1 ring-primary/25",
   href,
 }: BrandMarkProps) {
   const inner = (
     <>
-      <div className={`${iconWrapClassName} flex items-center justify-center shrink-0`}>
-        <Image
-          src="/goldsgym-logo.png"
-          alt="Gold's GYM logo"
-          width={72}
-          height={72}
-          className={iconClassName}
-          priority
-        />
+      <div
+        className={`${iconWrapClassName} flex items-center justify-center shrink-0 text-primary`}
+      >
+        <Smile className={iconClassName} strokeWidth={2} aria-hidden />
       </div>
       <span
         className={`${titleClassName} font-black tracking-tighter italic text-slate-100`}
       >
-        Gold&apos;s GYM
+        {site.practiceName}
       </span>
     </>
   );
@@ -41,7 +37,7 @@ export function BrandMark({
       <a
         href={href}
         className={`flex items-center ${wrapClassName} rounded-lg outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-dark`}
-        aria-label="Gold&apos;s GYM — back to top"
+        aria-label={`${site.practiceName} — back to top`}
       >
         {inner}
       </a>

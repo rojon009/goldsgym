@@ -5,7 +5,8 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { MessageCircleCheck, Phone, X } from "lucide-react";
 
-import { contact } from "@/lib/content";
+import { contact, site } from "@/lib/content";
+import { whatsappConversationUrl } from "@/lib/whatsappHref";
 import { CartoonButton } from "@/components/ui/cartoon-button";
 import { BrandMark } from "./BrandMark";
 
@@ -91,10 +92,11 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
                 id="join-modal-title"
                 className="mt-4 text-3xl font-black uppercase tracking-tight text-white"
               >
-                Join Us
+                Let&apos;s book you in
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/70">
-                Our team is ready to help you get started.
+                Tell us if it&apos;s pain, a second opinion, or a smile upgrade—
+                {site.practiceName} will point you to the right clinician fast.
               </p>
             </div>
 
@@ -108,7 +110,7 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
                 >
                   <div className="flex items-center gap-2">
                     <Phone className="size-4" />
-                    Call Now
+                    Call the desk
                   </div>
                 </CartoonButton>
               </div>
@@ -119,19 +121,17 @@ export function JoinModal({ open, onClose }: JoinModalProps) {
               </div>
               <div className="flex justify-center">
                 <CartoonButton
-                  label="Leave a Message"
                   color="bg-primary"
                   onClick={() => {
-                    window.open(
-                      `https://wa.me/${contact.phone.replace(/[^\d]/g, "")}`,
-                      "_blank",
-                      "noopener,noreferrer",
-                    );
+                    const url = whatsappConversationUrl();
+                    if (url) {
+                      window.open(url, "_blank", "noopener,noreferrer");
+                    }
                   }}
                 >
                   <div className="flex items-center gap-2">
                     <MessageCircleCheck className="size-4" />
-                    Leave a Message
+                    WhatsApp us
                   </div>
                 </CartoonButton>
               </div>

@@ -63,11 +63,11 @@ export function ContactSection() {
           <div className="space-y-12">
             <FadeUp className="space-y-4">
               <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">
-                Get in <span className="text-primary">Touch</span>
+                Book your <span className="text-primary">visit</span>
               </h2>
               <p className="text-white/50 text-sm max-w-sm">
-                Ready to start your journey? Our team is available 24/7 to
-                answer your questions.
+                Free consults, second opinions, and emergency triage—message us on
+                WhatsApp for the fastest reply, or call during clinic hours.
               </p>
             </FadeUp>
             <Stagger className="space-y-8">
@@ -124,9 +124,9 @@ export function ContactSection() {
           <SideFade className="relative w-full" delay={0.06}>
             <div className="relative h-[300px] sm:h-[340px] lg:h-[420px] overflow-hidden rounded-2xl border border-white/10 shadow-xl">
               <Image
-                alt={contact.gymImageAlt}
+                alt={contact.clinicImageAlt}
                 className="object-cover opacity-90"
-                src={contact.gymImageSrc}
+                src={contact.clinicImageSrc}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

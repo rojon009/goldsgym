@@ -1,4 +1,4 @@
-import { UserRound, Users } from "lucide-react";
+import { Clock, Star } from "lucide-react";
 
 import {
   FadeUp,
@@ -12,13 +12,13 @@ import {
 } from "@/lib/content";
 
 function SlotCard({ slot }: { slot: ScheduleSlot }) {
-  const Icon = slot.type === "womenOnly" ? UserRound : Users;
-  const badge = slot.type === "womenOnly" ? "Women only" : "Combined";
+  const Icon = slot.type === "featured" ? Star : Clock;
+  const badge = slot.type === "featured" ? "Featured block" : "Open";
 
   return (
     <div
       className={`rounded-xl border p-5 md:p-6 ${
-        slot.type === "womenOnly"
+        slot.type === "featured"
           ? "border-primary/30 bg-primary/5"
           : "border-white/10 bg-surface/80"
       }`}
@@ -29,7 +29,7 @@ function SlotCard({ slot }: { slot: ScheduleSlot }) {
         </p>
         <span
           className={`shrink-0 inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded ${
-            slot.type === "womenOnly"
+            slot.type === "featured"
               ? "bg-primary/20 text-primary"
               : "bg-white/10 text-white/70"
           }`}
@@ -85,18 +85,18 @@ export function ClassScheduleSection() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-14 md:mb-16">
           <FadeUp className="space-y-4">
             <p className="text-primary text-xs font-black uppercase tracking-[0.4em]">
-              Plan your visit
+              Easy scheduling
             </p>
             <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">
-              Class <span className="text-primary">Schedule</span>
+              Clinic <span className="text-primary">hours</span>
             </h2>
           </FadeUp>
           <FadeUp
             className="max-w-md text-white/50 text-sm leading-relaxed"
             delay={0.06}
           >
-            Hours below show when the floor is combined (all members) versus
-            women-only, and when trainers are available on each block.
+            Evening and family blocks fill fast—tap WhatsApp in the contact
+            section to hold your time. Emergency? Message us; we triage same day.
           </FadeUp>
         </div>
 

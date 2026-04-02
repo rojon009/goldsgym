@@ -9,7 +9,7 @@ export function ReviewsSection() {
       <div className="max-w-7xl mx-auto px-6">
         <FadeUp className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">
-            The <span className="text-primary">Voice</span> of Athletes
+            Real <span className="text-primary">patient stories</span>
           </h2>
         </FadeUp>
         <ReviewsCarousel reviews={reviews} />

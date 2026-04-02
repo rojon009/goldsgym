@@ -67,14 +67,14 @@ export function GallerySection() {
       <div className="max-w-7xl mx-auto">
         <FadeUp className="text-center mb-4 max-w-2xl mx-auto">
           <p className="text-primary text-xs font-black uppercase tracking-[0.4em] mb-4">
-            Inside the club
+            See the clinic
           </p>
           <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-4">
-            The <span className="text-primary">Gallery</span>
+            Calm <span className="text-primary">spaces</span>
           </h2>
           <p className="text-white/45 text-sm leading-relaxed">
-            A glimpse of the floor, classes, and energy. Tap any tile to open
-            the full set—swipe or use arrows to explore every photo.
+            Bright operatories, organized sterilization, and a reception that
+            doesn’t feel like a waiting room. Tap any photo to browse the full tour.
           </p>
         </FadeUp>
 

@@ -6,7 +6,15 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import { Bath, ChevronLeft, ChevronRight, Dumbbell, UserRound, Users, Zap } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Shield,
+  Smile,
+  Sparkles,
+  Stethoscope,
+  Zap,
+} from "lucide-react";
 import {
   useCallback,
   useEffect,
@@ -29,10 +37,10 @@ const BADGE_ICONS: Record<
   }>
 > = {
   zap: Zap,
-  dumbbell: Dumbbell,
-  userRound: UserRound,
-  users: Users,
-  bath: Bath,
+  sparkles: Sparkles,
+  shield: Shield,
+  stethoscope: Stethoscope,
+  smile: Smile,
 };
 
 /** Mobile: chevron only (no pill). md+: rounded bordered control. */
@@ -74,10 +82,10 @@ function HeroCarouselNavButton({
 
 type HeroExperienceProps = {
   slides: HeroSlide[];
-  memberAvatars: string[];
+  patientAvatars: string[];
 };
 
-export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
+export function HeroExperience({ slides, patientAvatars }: HeroExperienceProps) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -251,10 +259,10 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
                 </a>
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
-                    {memberAvatars.map((src, i) => (
+                    {patientAvatars.map((src, i) => (
                       <Image
                         key={src}
-                        alt="Member"
+                        alt=""
                         className="w-10 h-10 rounded-full border-2 border-background-dark object-cover"
                         src={src}
                         width={40}
@@ -264,7 +272,7 @@ export function HeroExperience({ slides, memberAvatars }: HeroExperienceProps) {
                     ))}
                   </div>
                   <p className="text-xs text-white/50 uppercase tracking-widest font-bold">
-                    Trusted by 2,000+ athletes
+                    4.9★ avg. · 2,400+ families treated
                   </p>
                 </div>
               </div>
